@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .post {
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #fff;
+            width: 300px; /* Set a fixed width for each post */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .post img, .post video {
+            width: 100%; /* Full width */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .caption {
+            padding: 10px;
+            text-align: center;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>skywave</h1>
+    <div class="gallery">
+        {% for post in posts %}
+            <div class="post">
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="{{ post.caption }}">
+                {% elif post.video %}
+                    <video controls>
+                        <source src="{{ post.video.url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                {% endif %}
+                <div class="caption">{{ post.caption }}</div>
+            </div>
+        {% empty %}
+            <p>No posts available.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
