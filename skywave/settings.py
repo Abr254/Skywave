@@ -30,7 +30,7 @@ FILE_UPLOAD_HANDLERS = [
     'django.core.files.uploadhandler.TemporaryFileUploadHandler',
     'django.core.files.uploadhandler.MemoryFileUploadHandler',
 ]
-ALLOWED_HOSTS = ['skywave.onrender.com'],
+ALLOWED_HOSTS = ['skywave-njzb.onrender.com'],
 
 
 # Application definition
