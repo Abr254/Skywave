@@ -1,0 +1,105 @@
+{% block cssfiles %}
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa; /* Fallback background color */
+        background-image: url('https://res.cloudinary.com/ddpphe1uv/image/upload/v1719169963/e0b85ca7e1132d57523244f699a60dc5_cetg7s.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+  .glow-button {
+    position: relative;
+    padding: 10px 20px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+  }
+
+  .glow-button:focus {
+    outline: none;
+  }
+
+  .glow-button:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5),
+                0 0 30px rgba(255, 255, 255, 0.5),
+                0 0 40px rgba(255, 255, 255, 0.5);
+  }
+
+  .bg-default {
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+    background-color: #6c757d; /* Default gray color */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+{% endblock cssfiles %}
+
+<div class="container mt-4">
+  <form class="form-inline mb-3">
+    <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn glow-button btn-success" type="submit">Search</button>
+  </form>
+  
+  <div class="row">
+    <div class="col-md-8">
+      {% if users %}
+        {% for user_p in users %}
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="media align-items-center">
+                <a href="{{ user_p.get_absolute_url }}" class="mr-3">
+                  <div class="bg-default">
+                    <strong>{{ user_p.username|slice:":1" }}</strong>
+                  </div>
+                </a>
+                <div class="media-body">
+                  <h5 class="mt-0">
+                    <a class="text-dark" href="{{ user_p.get_absolute_url }}"><b>{{ user_p.username }}</b></a>
+                  </h5>
+                  <a class="btn glow-button btn-primary float-right" href="{% url 'social_page' user_p.id %}">DM</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title"><i>No users to display at the moment. Please check back later!</i></h5>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+    
+    <div class="col-md-4">
+      <div class="card mb-3">
+        <div class="bg-default mx-auto">
+          <strong>{{ request.user.username|slice:":1" }}</strong>
+        </div>
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ request.user.username }}</h5>
+          <h6>{{ request.user.profile.friends.count }} <small class="text-muted">Friends</small></h6>
+          <p class="card-text">{{ request.user.profile.bio }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% block jsfiles %}
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock jsfiles %}
+

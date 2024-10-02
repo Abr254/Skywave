@@ -1,0 +1,111 @@
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://res.cloudinary.com/ddpphe1uv/image/upload/v1/1b1d7d621bb698dd2556c3dd890e8631_haq6xu');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh; /* Ensure full viewport height */
+            margin: 0; /* Remove default margin */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.8); /* White card background with opacity */
+            border-radius: 10px;
+            width: 90%; /* Adjust card width */
+            max-width: 580px; /* Limit card max width */
+            padding: 20px; /* Add padding inside the card */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: add box shadow */
+        }
+        .card-title {
+            color: #ffc107; /* Yellow card title */
+            text-align: center; /* Center align card title */
+            margin-bottom: 20px; /* Add space below title */
+        }
+        .btn-primary {
+            background-color: #ffc107; /* Yellow button */
+            border-color: #ffc107;
+        }
+        .btn-primary:hover {
+            background-color: #ffca28; /* Lighter yellow on hover */
+            border-color: #ffca28;
+        }
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.8); /* White navbar background with opacity */
+        }
+        /* Adjust input field width */
+        .form-control {
+            width: 90%;
+            box-sizing: border-box;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <!-- Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Sign Up Form -->
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title text-center">Sign Up</h2>
+                        <p class="text-center">Already have an account? <a href="{% url 'login' %}">Then please sign in.</a></p>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password1">Password</label>
+                                <input type="password" class="form-control" id="password1" name="password1" placeholder="Password" required>
+                                <small class="form-text text-muted">
+                                    Your password must be at least 8 characters long, contain at least one letter and one number, and cannot be entirely numeric.
+                                </small>
+                            </div>
+                            <div class="form-group">
+                                <label for="password2">Password (again)</label>
+                                <input type="password" class="form-control" id="password2" name="password2" placeholder="Password (again)" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+                            {% if messages %}
+                                <div class="error">
+                                    {% for message in messages %}
+                                        <p>{{ message }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 0;
+    }
+
+    .top-description {
+        background-color: gold;
+        padding: 20px;
+        text-align: center;
+        color: black;
+        margin-bottom: 20px;
+    }
+
+    .top-description h1 {
+        margin: 0;
+        font-size: 2.5rem;
+    }
+
+    .top-description p {
+        margin: 0;
+        font-size: 1.25rem;
+    }
+
+    .navbar-nav {
+        margin-left: auto;
+    }
+
+    .nav-item {
+        margin-left: 15px;
+    }
+
+    .nav-link {
+        align-items: center;
+        color: #007bff;
+        text-decoration: none;
+        font-size: 1.2rem;
+        display: flex;
+    }
+
+    .card-img-top {
+        width: 100%;
+        height: auto;
+    }
+</style>
+</head>
+<body>
+    {% include 'nav_link.html' %} <!-- Include the navbar -->
+    <div class="top-description">
+        <h1>Shop in Style</h1>
+        <p>Skywave Electronics</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <img src="https://res.cloudinary.com/ddpphe1uv/image/upload/v1721308614/sddefault_mdkmh5.jpg" class="card-img-top" alt="phone">
+                    <div class="card-body">
+                        <h5 class="card-title">NOKIA</h5>
+                        <p class="price">ksh/=39999</p>
+                        <button class="btn btn-primary order-button">Order Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <img src="https://res.cloudinary.com/ddpphe1uv/image/upload/v1721308637/85933712_yqxvtr.jpg" class="card-img-top" alt="phone">
+                    <div class="card-body">
+                        <h5 class="card-title">SAMSUNG</h5>
+                        <p class="price">$10999</p>
+                        <button class="btn btn-primary order-button">Order Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <img src="https://res.cloudinary.com/ddpphe1uv/image/upload/v1721308636/fg-OnePlus_Nord-N30-5G_Chromatic-Gray_Lockup_Combo_nologo-2_jp9htk.png" class="card-img-top" alt="phone">
+                    <div class="card-body">
+                        <h5 class="card-title">XIAOMI REDME</h5>
+                        <p> redme A32 5g enabled 64gb rom </p>
+                        <p class="price">ksh/=13999</p>
+                        <button class="btn btn-primary order-button">Order Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <img src="https://res.cloudinary.com/ddpphe1uv/image/upload/v1721308630/8430c915fc8c0120a7272059aa6e6e80_z5qssp.jpg" class="card-img-top" alt="phone">
+                    <div class="card-body">
+                        <h5 class="card-title">NOKIA</h5>
+                        <p class="price">ksh/=29999</p>
+                        <button class="btn btn-primary order-button">Order Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

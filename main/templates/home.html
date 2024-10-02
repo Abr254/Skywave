@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body style="background-image: url('https://res.cloudinary.com/ddpphe1uv/image/upload/v1/1b1d7d621bb698dd2556c3dd890e8631_haq6xu');
+background-repeat: no-repeat;  background-size: cover;">
+
+    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="jumbotron text-center" style="background-color: rgba(255, 255, 0, 0.5); padding: 20px; width: 80%;">
+            <h1>Welcome to Skywave Electronics</h1>
+            <p>Create your account or login to continue.</p>
+            <br>
+            <p><a href="{% url 'login' %}" class="btn btn-primary">Login</a> | <a href="{% url 'signup' %}" class="btn btn-primary">Sign Up</a></p>
+        </div> 
+</body>
+</html>
